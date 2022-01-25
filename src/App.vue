@@ -23,6 +23,7 @@
 
 <script >
 import Header from "@/components/Header";
+import './index.css'
 export default {
   components: {Header}
 }
@@ -30,14 +31,6 @@ export default {
 </script>
 
 <style>
-@import "normalize.css";
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
 *{
   font-family: 'Roboto',sans-serif;
