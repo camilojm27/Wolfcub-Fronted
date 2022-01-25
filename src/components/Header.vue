@@ -2,17 +2,19 @@
   <nav>
 
     <div id="logo">
-      <img src="../../assets/w.png" alt="Logo" height="100" />
+      <router-link to="/">
+        <img src="../../assets/w.png" alt="Logo" height="100" />
+      </router-link>
     </div>
 
     <ul class="nav-links">
       <li v-for="list in navLinks" :key="list.key">
-        <a v-if="list.dropdown === false" :href="list.link">{{ list.name }}</a>
+        <router-link v-if="list.dropdown === false" :to="list.link">{{ list.name }}</router-link>
         <div class="dropdown-link" v-else>
-          <a :href="list.link">
+          <router-link :to="list.link">
             {{ list.name }}
             <span>&#x2193;</span>
-          </a>
+          </router-link>
           <ul class="dropdown-menu">
             <li v-for="item in list.dropdownLinks" :key="item.key">
               <a :href="item.link">{{ item.name }}</a>
