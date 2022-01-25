@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style>
+/*@import "normalize.css";*/
 
 *{
   font-family: 'Roboto',sans-serif;

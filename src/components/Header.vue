@@ -1,9 +1,9 @@
 <template>
   <nav>
 
-    <div id="logo">
+    <div id="logos">
       <router-link to="/">
-        <img src="../../assets/w.png" alt="Logo" height="100" />
+        <img class="w-24 h-24 mx-auto" src="../../assets/w.png" alt="Logo" height="100" />
       </router-link>
     </div>
 
@@ -113,7 +113,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: #8ECAE6;
-  min-height: 8vh;
+  height: 10vh;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -121,7 +121,7 @@ div#logo {
   letter-spacing: 5px;
   color: #fefefe;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 ul.nav-links {
