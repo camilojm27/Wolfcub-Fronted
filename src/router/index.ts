@@ -4,7 +4,7 @@ import E404 from '../views/E404.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },
@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     name: '404',
     component: E404
   },
