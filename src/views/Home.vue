@@ -32,8 +32,6 @@
     <div>
       <img src="../../assets/servicedog.png" alt="" height="500">
     </div>
-
-
   </section>
   <section class="pricing">
     <div>
@@ -152,6 +150,19 @@ footer{
   background-image: url("../../assets/hero-friend.png");
   background-position: center;
   height: 90vh;
+  display: flex;
+  align-items: center;
+  color: ghostwhite;
+}
+.hero > div{
+  margin-left: 60px;
+  background-color: rgba(128, 128, 128, 0.7);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-size: larger;
 }
 button{
   padding: 15px;
@@ -166,10 +177,10 @@ button:hover{
   cursor: pointer;
 }
 .service{
-  height: 400px;
+  height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .service-quality{
   display: flex;
@@ -207,6 +218,9 @@ button:hover{
   border-radius: 20px;
   margin: 0 10px;
 
+}
+.pricing-card:nth-child(1), .pricing-card:nth-child(3){
+  background-color: #c0e5f3;
 }
 .pricing-attribute{
   display: flex;

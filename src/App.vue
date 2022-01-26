@@ -1,11 +1,6 @@
 <template>
   <Header
           :navLinks="[
-        {
-          name: 'Home',
-          link: '/',
-          dropdown: false,
-        },
         { name: 'About', link: '/about', dropdown: false },
         {
           name: 'Contacts',
@@ -23,7 +18,6 @@
 
 <script >
 import Header from "@/components/Header";
-import './index.css'
 export default {
   components: {Header}
 }
@@ -31,7 +25,7 @@ export default {
 </script>
 
 <style>
-/*@import "normalize.css";*/
+@import "normalize.css";
 
 *{
   font-family: 'Roboto',sans-serif;
