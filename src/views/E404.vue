@@ -1,8 +1,8 @@
 <template>
   <section>
     <div>
-      <h1>Lorem ipsum dolor sit amet, consectetur</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi beatae facilis id itaque magnam non quos rem? Libero, repellat.</p>
+      <h1>This page doesn't exist</h1>
+      <p>If you think this is an error please let us know</p>
     </div>
 
   </section>
@@ -17,16 +17,22 @@ export default {
 
 <style scoped>
   section{
+    display: flex;
     background-image: url('../../assets/404cat.png');
-    height: 90vh;
+    height: 92vh;
     background-size: contain;
     background-color: goldenrod;
     margin-top: -20px;
     padding: 0;
   }
-  section div{
-    background-color: papayawhip;
+  div{
+    height: 30%;
+    width: 80%;
+    padding: 20px;
+    background-color: rgba(255, 239, 213, 0.68);
+    border-radius: 30px;
     justify-content: center;
     margin: auto;
+    text-align: center;
   }
 </style>
