@@ -1,18 +1,23 @@
 <template>
   <div class="page">
-    <h1>A responsive table</h1>
+    <h1>Usuarios</h1>
     <table class="layout display responsive-table">
       <thead>
       <tr>
         <th>ID</th>
-        <th colspan="2">Nombre</th>
+        <th >First Name</th>
+        <th >Last Name</th>
+        <th >Phone</th>
+        <th >Email</th>
       </tr>
       </thead>
       <tbody>
 
-      <tr>
-        <td class="organisationnumber">140406</td>
-        <td class="organisationname">Stet clita kasd gubergren, no sea takimata sanctus est</td>
+      <tr v-for="user in users" :key="user.document_id">
+        <td class="organisationname">{{user.first_name}}</td>
+        <td class="organisationname">{{user.last_name}}</td>
+        <td class="organisationname">{{user.phone}}</td>
+        <td class="organisationnumber">{{user.email}}</td>
         <td class="actions">
           <a href="?" class="edit-item" title="Edit">Edit</a>
           <a href="?" class="remove-item" title="Remove">Remove</a>
@@ -28,7 +33,20 @@
 
 <script>
 export default {
-  name: "Table"
+  name: "Table",
+  data(){
+    return {
+      users: null
+    };
+  },
+  async created() {
+    const response = await fetch("http://localhost:3000/users")
+    const data = await response.json()
+   await console.log(data)
+    this.users = data;
+
+
+  }
 }
 </script>
 
