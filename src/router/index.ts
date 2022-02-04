@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Landing from '../views/Landing.vue';
+import Contact from '../views/Contact.vue'
+import Users from '../views/Users.vue'
 import E404 from '../views/E404.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,6 +17,16 @@ const routes: Array<RouteRecordRaw> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
+  },
+  {
+    path: '/users',
+    name: 'Users',
+    component: Users
   },
   {
     path: '/:pathMatch(.*)*',
