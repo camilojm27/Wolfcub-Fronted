@@ -12,6 +12,11 @@
           link: '/projects',
           dropdown: false,
         },
+        {
+          name: 'Sing Up',
+          link: '/singup',
+          dropdown: false,
+        },
       ]"></Header>
   <router-view/>
 </template>
