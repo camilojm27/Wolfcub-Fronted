@@ -29,22 +29,26 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Table",
   props: {users: Array, title: String, col_titles: Array},
   methods: {
     btnDelete: async function (id){
       this.$swal.fire({
-        title: "are you sure you want to delete record "+ id,
+        title: "are you sure you want to delete record #"+ id,
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'Borrar',
-      }).then((result) => {
-        if (result.value){
-          //boorar
+      }).then(async (result) => {
+        if (result.value) {
+          await axios.delete('http://localhost:3000/users/delete/' + id)
+          // eslint-disable-next-line vue/no-mutating-props
+          this.users= this.users.filter(el=>el.document_id != id)
           this.$swal.fire('eliminado')
+          this.$forceUpdate()
         }
       })
     },
