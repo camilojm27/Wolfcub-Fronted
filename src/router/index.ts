@@ -4,7 +4,8 @@ import Contact from '../views/Contact.vue';
 import Projects from "../views/Projects.vue";
 import Users from '../views/Users.vue'
 import E404 from '../views/E404.vue';
-import Singup from '../components/Singup.vue'
+import Singup from '../components/Singup.vue';
+import Reports from '../views/Reports.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,6 +35,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/users',
     name: 'Users',
     component: Users
+  },
+  {
+    path: '/reports',
+    name: 'Reports',
+    component: Reports
   },
   {
     path: '/singup',
