@@ -1,26 +1,23 @@
 <template>
   <div class="page">
-    <h1>Usuarios</h1>
+    <h1>{{title}}</h1>
     <table class="layout display responsive-table">
       <thead>
-      <tr>
-        <th>ID</th>
-        <th >First Name</th>
-        <th >Last Name</th>
-        <th >Phone</th>
-        <th >Email</th>
-      </tr>
+        <th v-for="t in col_titles" v-bind:key="t">
+          {{t}}
+        </th>
       </thead>
       <tbody>
 
       <tr v-for="user in users" :key="user.document_id">
+        <td class="organisationname">{{user.document_id}}</td>
         <td class="organisationname">{{user.first_name}}</td>
         <td class="organisationname">{{user.last_name}}</td>
         <td class="organisationname">{{user.phone}}</td>
         <td class="organisationnumber">{{user.email}}</td>
         <td class="actions">
-          <a href="?" class="edit-item" title="Edit">Edit</a>
-          <a href="?" class="remove-item" title="Remove">Remove</a>
+          <button>Edit</button>
+          <button v-on:click="btnDelete(user.document_id)">Remove</button>
         </td>
       </tr>
 
@@ -32,20 +29,31 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Table",
-  data(){
-    return {
-      users: null
-    };
-  },
-  async created() {
-    const response = await fetch("http://localhost:3000/users")
-    const data = await response.json()
-   await console.log(data)
-    this.users = data;
-
-
+  props: {users: Array, title: String, col_titles: Array},
+  methods: {
+    btnDelete: async function (id){
+      this.$swal.fire({
+        title: "are you sure you want to delete record #"+ id,
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Borrar',
+      }).then(async (result) => {
+        if (result.value) {
+          await axios.delete('http://localhost:3000/users/delete/' + id)
+          // eslint-disable-next-line vue/no-mutating-props
+          this.users= this.users.filter(el=>el.document_id != id)
+          this.$swal.fire('eliminado')
+          this.$forceUpdate()
+        }
+      })
+    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    btnEdit: async function (){},
   }
 }
 </script>
